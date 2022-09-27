@@ -1,7 +1,7 @@
 import "./header.css";
 import MenuIcon from "../../img/menu.png";
 import MainIcon from "../../img/hand-made.png";
-import ShopCard from "../../img/basket.png"
+import ShopCard from "../../img/basket.png";
 
 const Header = () => {
     return (
@@ -10,13 +10,13 @@ const Header = () => {
                 <div className="menu-btn">
                     <img className="icon" src={MenuIcon} alt="menu icon" />
                 </div>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Bath</a></li>
-                    <li><a class="dropdown-item" href="#">Candles</a></li>
-                    <li><a class="dropdown-item" href="#">Clay</a></li>
-                    <li><a class="dropdown-item" href="#">Cosmetics</a></li>
-                    <li><a class="dropdown-item" href="#">Clothes</a></li>
-                    <li><a class="dropdown-item" href="#">Jewelry</a></li>
+                <ul className="dropdown-menu">
+                    <li className="dropdown-item"><a href="#">Bath</a></li>
+                    <li className="dropdown-item"><a href="#">Candles</a></li>
+                    <li className="dropdown-item"><a href="#">Clay</a></li>
+                    <li className="dropdown-item"><a href="#">Cosmetics</a></li>
+                    <li className="dropdown-item"><a href="#">Clothes</a></li>
+                    <li className="dropdown-item"><a href="#">Jewelry</a></li>
                 </ul>
             </div>
 
