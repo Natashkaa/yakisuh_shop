@@ -5,7 +5,7 @@ import ShopCard from "../../img/basket.png";
 
 const Header = () => {
     return (
-        <div className="header">
+        <header className="header">
             <div className="menu-block">
                 <div className="menu-btn">
                     <img className="icon" src={MenuIcon} alt="menu icon" />
@@ -31,7 +31,7 @@ const Header = () => {
                 <img className="icon" src={ShopCard} alt="shop card icon" />
             </div>
 
-        </div>
+        </header>
 
     )
 }
