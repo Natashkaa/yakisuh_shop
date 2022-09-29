@@ -37,20 +37,23 @@
     position: absolute;
     opacity: 0;
     height: 0;
+    width: 150px;
     background-color: rgba(255, 162, 0, 0.459);
     transition: opacity 0.6s ease-in-out;
     z-index: 1;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     margin: 0;
-    font-size: 26px;
+    font-size: 20px;
     list-style: none;
-    padding: 0
+    padding: 0;
 }
 .dropdown-item{
     padding: 5px 10px;
 }
 .dropdown-item:hover{
-    background-color: rgba(255, 162, 0, 0.35);
+    background-color: rgb(255, 162, 0);
+    font-size: 24px;
+    transition: font-size 0.3s ease-in-out;
 }
 a{
     color: white;
