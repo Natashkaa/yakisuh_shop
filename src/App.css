@@ -6,4 +6,6 @@
     background-size: cover;
     font-family: 'Courier New', Courier, monospace;
     color: white;
+    display: flex;
+    flex-direction: column;
 }
