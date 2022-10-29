@@ -1,51 +1,46 @@
 import "./header.css";
-import MenuIcon from "../../img/menu.png";
-import MainIcon from "../../img/hand-made.png";
-import ShopCard from "../../img/basket.png";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import Error from "../Error/error";
 
 const Header = (props) => {
     const { getData } = props;
-    const [ items, setItems ] = useState([]);
+    const [items, setItems] = useState([]);
+    const [error, setError] = useState(null);
 
-    getData().then(res => {
-        setItems(res.map((item) => {
-            const { typeId, typeName } = item;
-            return (
-                <li key={typeId}
-                    className="dropdown-item">{typeName}</li>
+    useEffect(() => {
+        getData().then(res => {
+            setItems(res.map((item) => {
+                const { typeId, typeName } = item;
+                return (
+                    <li key={typeId}
+                        className="dropdown-item">{typeName}</li>
+                );
+            })
             );
         })
-        ); 
-    });
-
-
+        .catch(err => {
+            setError(err.message);
+        });
+    }, []);
+    var content = error === null ? <ul className="dropdown-menu">{items}</ul> : <div className="dropdown-menu"><Error msg={error} fontSize="20px" /></div>
     return (
         <header className="header">
             <div className="menu-block">
                 <div className="menu-btn">
-                    <img className="icon" src={MenuIcon} alt="menu icon" />
+                    <img className="icon" src="/menu.png" alt="menu icon" />
                 </div>
-                <ul className="dropdown-menu">
-                    {/* <li className="dropdown-item"><a href="#">Bath</a></li>
-                    <li className="dropdown-item"><a href="#">Candles</a></li>
-                    <li className="dropdown-item"><a href="#">Clay</a></li>
-                    <li className="dropdown-item"><a href="#">Cosmetics</a></li>
-                    <li className="dropdown-item"><a href="#">Clothes</a></li>
-                    <li className="dropdown-item"><a href="#">Jewelry</a></li> */}
-                    {items}
-                </ul>
+                {content}
             </div>
 
             <div className="name-block">
                 <div className="main-icon-block">
-                    <img className="icon" src={MainIcon} alt="main icon" />
+                    <img className="icon" src="/hand-made.png" alt="main icon" />
                 </div>
                 <div>YaKisuh</div>
             </div>
 
             <div className="card-block" type="button">
-                <img className="icon" src={ShopCard} alt="shop card icon" />
+                <img className="icon" src="/basket.png" alt="shop card icon" />
             </div>
 
         </header>
