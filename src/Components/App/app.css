@@ -1,7 +1,7 @@
 .app{
     width: 100vw;
     height: 100vh;
-    background-image: url("../src/img/bcg_1.jpg");
+    background-image: url("../../../public/bcg_1.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     font-family: 'Courier New', Courier, monospace;
