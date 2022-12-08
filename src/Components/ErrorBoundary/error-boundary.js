@@ -18,9 +18,7 @@ export default class ErrorBoundary extends Component{
     }
 
     render(){
-        console.log("haserror " + this.state.hasError)
         if(this.state.hasError){
-            return <h1>SFSFSDF</h1>
             return <Error msg="ERROR"/>
         }
         return this.props.children;

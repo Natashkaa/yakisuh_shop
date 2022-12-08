@@ -13,7 +13,7 @@ const Header = (props) => {
                 const { typeId, typeName } = item;
                 return (
                     <li key={typeId}
-                        className="dropdown-item">{typeName}</li>
+                        className="dropdown-item" onClick={() => props.changeType(typeId)}>{typeName}</li>
                 );
             })
             );
