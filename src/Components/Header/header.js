@@ -1,6 +1,7 @@
 import "./header.css";
 import React, { useEffect, useState } from "react";
 import Error from "../Error/error";
+import Card from "../Card/card";
 
 const Header = (props) => {
     const { getData } = props;
@@ -18,9 +19,9 @@ const Header = (props) => {
             })
             );
         })
-        .catch(err => {
-            setError(err.message);
-        });
+            .catch(err => {
+                setError(err.message);
+            });
     }, []);
     var content = error === null ? <ul className="dropdown-menu">{items}</ul> : <div className="dropdown-menu"><Error msg={error} fontSize="20px" /></div>
     return (
@@ -39,9 +40,7 @@ const Header = (props) => {
                 <div>YaKisuh</div>
             </div>
 
-            <div className="card-block" type="button">
-                <img className="icon" src="/basket.png" alt="shop card icon" />
-            </div>
+            <Card cardItem={props.cardItem} shopList={props.shopList}/>
 
         </header>
 

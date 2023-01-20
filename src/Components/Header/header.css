@@ -1,5 +1,5 @@
 .name-block,
-.card-block,
+.card-btn,
 .menu-btn {
     display: flex;
     align-items: center;
@@ -17,19 +17,19 @@
     padding: 0;
 }
 
-.menu-block {
+.menu-block, .card-block {
     position: relative;
     display: inline-block;
 }
 
-.menu-btn {
+.menu-btn, .card-btn {
     width: 70px;
     padding: 5px;
     position: relative;
     cursor: pointer;
 }
 
-.menu-block:hover {
+.menu-block:hover, .card-btn:hover {
     background-color: rgba(255, 162, 0, 0.459);
 }
 
@@ -72,7 +72,6 @@ a {
 }
 
 .name-block {
-    background-color: rgba(0, 100, 0, 0);
     font-size: 16px;
     flex-direction: row;
 }
@@ -81,12 +80,11 @@ a {
     width: 50px;
 }
 
-.card-block {
-    background-color: rgba(130, 0, 252, 0);
-    width: 65px;
-}
 
 .icon {
     width: 40px;
     height: 40px
+}
+hr{
+    width: 100%;
 }

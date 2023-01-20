@@ -11,7 +11,9 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentType: 1
+      currentType: 1,
+      listLength: 5,
+      shopList: []
     }
   }
 
@@ -19,17 +21,25 @@ export default class App extends Component {
   changeCurrentType = (newType) => {
     this.setState({currentType: newType});
   }
+  addItemToShopList = (newItem) => {
+    this.setState({ listLength: this.state.listLength + 1, shopList: [...this.state.shopList, newItem]});
+  }
+
 
   render() {
     return (
       <div className='app'>
         <ErrorBoundary>
           <Header getData={this.shopApi.getAllGoodTypes}
-            changeType={this.changeCurrentType} />
+            changeType={this.changeCurrentType} 
+            cardItem={this.state.listLength}
+            shopList={this.state.shopList}/>
           <Body getData={this.shopApi.getAllGoods}
             getTypes={this.shopApi.getAllGoodTypes}
             getImages={this.shopApi.getAllImages}
-            currentType={this.state.currentType} />
+            currentType={this.state.currentType} 
+            addItemToList={this.addItemToShopList}
+            />
           <Footer />
         </ErrorBoundary>
       </div>
