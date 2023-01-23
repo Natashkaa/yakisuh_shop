@@ -110,6 +110,7 @@
     color: white;
     border-radius: 5px;
     font-size: 20px;
+    cursor: pointer;
   }
   .img-load-container{
     width: 100%;

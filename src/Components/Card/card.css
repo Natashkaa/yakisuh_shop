@@ -1,8 +1,21 @@
-
-.card-block {
+.card-block{
 }
 .card-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    padding: 5px;
+    position: relative;
+    cursor: pointer;
+}
+.card-btn:hover {
+    background-color: rgba(255, 162, 0, 0.459);
+}
 
+.card-block:hover  .card-content{
+    opacity: 1;
+    height: auto;
 }
 .item-count{
     font-size: 18px;
@@ -13,6 +26,9 @@
     text-align: center;
 }
 .card-content{
+    opacity: 0;
+    height: 0;
+    transition: opacity 0.3s ease-in-out;
     background-color: rgb(255, 255, 255);
     position: absolute;
     z-index: 10;
@@ -22,7 +38,6 @@
     overflow: hidden;
     width: 350px;
     max-height: 500px;
-    height: auto;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.555);
     right: 10px;
     border-radius: 20px;
@@ -56,6 +71,7 @@
     justify-content:space-between;
 }
 .item-name{
+    width: 50%
 }
 .delete-item{
     background-color: transparent;
@@ -89,4 +105,8 @@
 }
 .block-empty{
     text-align: center;
+}
+hr{
+    border: 1px solid rgb(224, 224, 224);
+    border-bottom: none;
 }

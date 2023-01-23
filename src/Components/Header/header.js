@@ -40,7 +40,12 @@ const Header = (props) => {
                 <div>YaKisuh</div>
             </div>
 
-            <Card cardItem={props.cardItem} shopList={props.shopList}/>
+            <Card
+                cardItem={props.cardItem}
+                shopList={props.shopList}
+                totalPrice={props.totalPrice}
+                shopListLength={props.shopListLength}
+                removeItemFromList={props.removeItemFromList} />
 
         </header>
 

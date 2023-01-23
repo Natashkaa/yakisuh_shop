@@ -12,8 +12,9 @@ export default class App extends Component {
     super(props);
     this.state = {
       currentType: 1,
-      listLength: 5,
-      shopList: []
+      totalPrice: 0,
+      shopList: [], 
+      shopListLength: 0
     }
   }
 
@@ -22,7 +23,20 @@ export default class App extends Component {
     this.setState({currentType: newType});
   }
   addItemToShopList = (newItem) => {
-    this.setState({ listLength: this.state.listLength + 1, shopList: [...this.state.shopList, newItem]});
+    const isIteminList = this.state.shopList.some(x => x.id == newItem.id);
+    if(isIteminList) return;
+    this.setState({ 
+      shopList: [...this.state.shopList, newItem], 
+      totalPrice: this.state.totalPrice + newItem.price, 
+      shopListLength: this.state.shopListLength + 1
+    });
+  }
+  removeItemFromShopList = (item) => {
+    const newList = this.state.shopList.filter((i) => i.id != item.id);
+    this.setState({ 
+      shopList: [...newList], 
+      totalPrice: this.state.totalPrice - item.price,
+      shopListLength: this.state.shopListLength - 1});
   }
 
 
@@ -32,8 +46,10 @@ export default class App extends Component {
         <ErrorBoundary>
           <Header getData={this.shopApi.getAllGoodTypes}
             changeType={this.changeCurrentType} 
-            cardItem={this.state.listLength}
-            shopList={this.state.shopList}/>
+            shopList={this.state.shopList}
+            totalPrice={this.state.totalPrice}
+            shopListLength={this.state.shopListLength}
+            removeItemFromList={this.removeItemFromShopList}/>
           <Body getData={this.shopApi.getAllGoods}
             getTypes={this.shopApi.getAllGoodTypes}
             getImages={this.shopApi.getAllImages}
